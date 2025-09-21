@@ -8,34 +8,91 @@ import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { Trophy, Users, LogOut, Lock, CheckCircle, Circle, Star } from 'lucide-react';
 import { TopModal } from './top-modal';
+
 const TOPS_DATA = {
   1: {
-    title: "TOP 1 - Fampidirana",
-    code: "WPD2025",
-    instruction: "Tongasoa amin'ny iraka voalohany ! Tsy maintsy mahita ny valiny miafina amin'ity fanontaniana ity ianao: 'Izaho no boky voalohany ao amin'ny Baiboly, milaza ny fiandohana. Inona ny anarako ?'",
-    correctAnswer: "Genesisy",
-    theme: "from-blue-500 to-blue-600"
+    title: "Fanamiana",
+    code: "FANEVA",
+    instruction: "Lazao ny anaran’ny lokon’ny lobaka Class B amin’ny fanamian'ny mpisava lalana ?",
+    correctAnswer: "Khaki",
+    theme: "from-yellow-700 to-yellow-800"
   },
   2: {
-    title: "TOP 2 - Herim-po",
-    code: "WPD2025",
-    instruction: "Arahabaina nahavita ny TOP 1 ! Ankehitriny, vahaolana ity fanontaniana momba ny herim-po ity: 'Iza ny zatovolahy nandresy an'i Goliata tamin'ny antsamotady ?'",
-    correctAnswer: "Davida",
-    theme: "from-green-500 to-green-600"
+    title: "Loko Saina",
+    code: "COULEUR",
+    instruction: "Inona ny loko voalohany hita amin'ny zoro ambony havia amin'ny sainan'ny Mpisava Lalana ?",
+    correctAnswer: "Manga",
+    theme: "from-blue-500 to-indigo-600"
   },
   3: {
-    title: "TOP 3 - Fahendrena",
-    code: "WPD2025",
-    instruction: " Ity fanadinana ity dia manamarina ny fahendrenao: 'Iza ny mpanjaka tao Israely izay nalaza tamin'ny fahendrena lehibe sy nanorina ny tempoly tao Jerosalema ?'",
-    correctAnswer: "Solomona",
-    theme: "from-orange-500 to-orange-600"
+    title: "Sary Famantarana ny mpisava lalana",
+    code: "ENDRIKA",
+    instruction: "Inona ny fitaovam-piarovana hita eo afovoan'ny Sary Famantarana ny mpisava lalana ?",
+    correctAnswer: "Ampinga",
+    theme: "from-purple-500 to-purple-600"
   },
   4: {
-    title: "TOP 4 - Fandresena Farany",
-    code: "WPD2025",
-    instruction: "Fanadinana farany ! Asehoy ny fahalalanao faratampony: 'Inona ny boky farany ao amin'ny Baiboly izay miresaka ny faminaniana ?'",
-    correctAnswer: "apokalypsy",
-    theme: "from-purple-500 to-purple-600"
+    title: "Hira Faneva",
+    code: "FANEVA",
+    instruction: "Iza no nanoratra ny hira fanevan'ny Mpisava Lalana tamin'ny 1948 ?",
+    correctAnswer: "Henry Bergh",
+    theme: "from-orange-500 to-orange-600"
+  },
+  5: {
+    title: "Hevitry ny Loko",
+    code: "LAFOVIDY",
+    instruction: "Inona no asehon’ny loko ranom-bolamena amin'ny sainan'ny Mpisava Lalana ?",
+    correctAnswer: "Finoana",
+    theme: "from-yellow-500 to-yellow-600"
+  },
+  6: {
+    title: "Kilasy Pandrosoana",
+    code: "KILASY",
+    instruction: "Firy ny mari-pandrosoana misy ao amin'ny Mpisava Lalana ?",
+    correctAnswer: "6",
+    theme: "from-teal-500 to-teal-600"
+  },
+  7: {
+    title: "Tantara",
+    code: "HISTORY",
+    instruction: "Tamin'ny taona firy no natsangana tamin'ny fomba ofisialy ny Club Pathfinder ?",
+    correctAnswer: "1950",
+    theme: "from-pink-500 to-pink-600"
+  },
+  8: {
+    title: "Hevitry ny Loko",
+    code: "LOKO50",
+    instruction: "Inona no asehon’ny loko fotsy amin'ny sainan'ny Mpisava Lalana ?",
+    correctAnswer: "Fahadiovana",
+    theme: "from-gray-200 to-gray-400"
+  },
+  9: {
+    title: "Sainan'ny Mpisava",
+    code: "SAINA4",
+    instruction: "Firy metatra ny sakany amin'ny sainan'ny Mpisava Lalana ?",
+    correctAnswer: "1",
+    theme: "from-stone-500 to-stone-600"
+  },
+  10: {
+    title: "Hevitry ny Loko",
+    code: "LOKO10",
+    instruction: "Inona no asehon’ny loko mena amin'ny sainan'ny Mpisava Lalana ?",
+    correctAnswer: "Rà",
+    theme: "from-red-500 to-red-600"
+  },
+  11: {
+    title: "Sary Famantarana ny mpisava lalana",
+    code: "LOGO16",
+    instruction: "Inona ny fitaovam-piadiana hita eo afovoan'ny Sary famantarana ny mpisava lalana ?",
+    correctAnswer: "Sabatra",
+    theme: "from-green-500 to-green-600"
+  },
+  12: {
+    title: "Tantara",
+    code: "CLASSP",
+    instruction: "Tamin’ny taona firy no natomboka voalohany ny kilasim-pandrosoana Pathfinder ?",
+    correctAnswer: "1922",
+    theme: "from-amber-500 to-amber-600"
   }
 };
 
@@ -95,7 +152,8 @@ export function Dashboard() {
   };
 
   const completedTopsCount = patrouillageData?.completedTops.length || 0;
-  const progressPercentage = (completedTopsCount / 4) * 100;
+  const totalTops = Object.keys(TOPS_DATA).length;
+  const progressPercentage = (completedTopsCount / totalTops) * 100;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-green-50 to-orange-50">
@@ -137,11 +195,11 @@ export function Dashboard() {
                   <span>Progression</span>
                 </CardTitle>
                 <CardDescription>
-                  {completedTopsCount} / 4 TOP no vita
+                  {completedTopsCount} / {totalTops} TOP no vita
                 </CardDescription>
               </div>
               <Badge variant="secondary" className="text-lg px-4 py-2">
-                {completedTopsCount}/4
+                {completedTopsCount}/{totalTops}
               </Badge>
             </div>
           </CardHeader>
@@ -217,7 +275,6 @@ export function Dashboard() {
             <p>• Ampidiro ny valiny marina mba hiroso amin'ny TOP manaraka</p>
             <p>• Voatahiry ho azy ny fandrosoanao</p>
           </CardContent>
-
         </Card>
       </div>
 

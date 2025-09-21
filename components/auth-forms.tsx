@@ -145,7 +145,7 @@ export function AuthForms() {
                     <Input
                       id="signup-name"
                       type="text"
-                      placeholder="Les Aigles Aventuriers"
+                      placeholder="OMBY MAZOTO"
                       value={signUpForm.patrouilleName}
                       onChange={(e) => setSignUpForm({ ...signUpForm, patrouilleName: e.target.value })}
                       className="pl-10"
