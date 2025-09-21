@@ -138,7 +138,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       // Si le TOP est complété, ajouter à la liste des TOPs complétés et passer au suivant
       if (updatedProgress.completed && !patrouillageData.completedTops.includes(topNumber)) {
         updatedData.completedTops = [...patrouillageData.completedTops, topNumber];
-        if (topNumber < 4) {
+        if (topNumber < 20) {
           updatedData.currentTop = topNumber + 1;
         }
       }
